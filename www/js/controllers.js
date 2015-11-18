@@ -177,7 +177,7 @@ hive.controller('addfeatureCtrl', function($scope, $ionicModal) {
 });
 
 //Accordion Controller - This is within the idea details page under the 'features' tab
-hive.controller('AccordionCtrl', function($scope) {
+hive.controller('AccordionCtrl', function($scope, $ionicModal) {
   $scope.groups = [];
   for (var i=0; i<3; i++) {
     $scope.groups[i] = {
@@ -204,6 +204,26 @@ hive.controller('AccordionCtrl', function($scope) {
   $scope.isGroupShown = function(group) {
     return $scope.shownGroup === group;
   };
+  
+  //if 'Tasks' item is pressed show this modal
+  $ionicModal.fromTemplateUrl('tasks-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })  
+
+  $scope.openModal = function() {
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
   
 });
 

@@ -142,10 +142,34 @@
           <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
             <i class="icon ion-checkmark-round" style="color: #ff0000;"></i>
             Tasks
-            <button class="text-center button button-balanced">
+            <button class="text-center button button-balanced" ng-click="openModal(tasks-modal)">
               Add
             </button>
           </ion-item>
+          
+          
+          <script id="tasks-modal.html" type="text/ng-template">
+            <div class="modal myContent">
+              <ion-header-bar>
+                <div style="margin-left: 5px">
+                  <button class="button button-clear cancel-button" style="font-size: 16px;" ng-click="closeModal()">
+                    Cancel
+                  </button>
+                </div>
+                <h1 class="title">Add Task</h1>
+                  <button class="button location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+                    Add
+                  </button>
+              </ion-header-bar>
+              <ion-content>
+                <div class="list">
+                  <label class="item item-input">
+                    <textarea rows="10" placeholder="Description" style="resize: none;"></textarea>
+                  </label>
+                </div>
+              </ion-content>
+            </div>
+          </script>
           
           <!-- User Story Commits (Once Accordion Unfolded)-->
           <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
