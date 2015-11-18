@@ -205,8 +205,48 @@ hive.controller('AccordionCtrl', function($scope, $ionicModal) {
     return $scope.shownGroup === group;
   };
   
-  //if 'Tasks' item is pressed show this modal
+  //if 'Tasks' button is pressed show this modal
   $ionicModal.fromTemplateUrl('tasks-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })  
+
+  $scope.openModal = function() {
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  
+  //if 'Commit' button is pressed show this modal
+  $ionicModal.fromTemplateUrl('commit-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })  
+
+  $scope.openModal = function() {
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  
+  //if 'Write Test' button is pressed show this modal
+  $ionicModal.fromTemplateUrl('testing-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {

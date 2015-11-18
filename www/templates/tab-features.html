@@ -130,14 +130,6 @@
             {{group.description}}
           </ion-item>
           
-          <!-- User Story Name (Once Accordion Unfolded)-->
-          <ion-item class="item-accordion item-button-right"  ng-show="isGroupShown(group)">
-            {{group.name}}
-            <button class="text-center button button-positive">
-              Finish
-            </button>
-          </ion-item>
-          
           <!-- User Story Tasks (Once Accordion Unfolded)-->
           <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
             <i class="icon ion-checkmark-round" style="color: #ff0000;"></i>
@@ -175,17 +167,74 @@
           <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
             <i class="icon ion-social-github-outline" style="color: #ff0000;"></i>
             Commits
-            <button class="text-center button button-balanced">
+            <button class="text-center button button-balanced" ng-click="openModal(commit-modal)">
               Commit
             </button>
           </ion-item>
+          
+          <script id="commit-modal.html" type="text/ng-template">
+            <div class="modal myContent">
+              <ion-header-bar>
+                <div style="margin-left: 5px">
+                  <button class="button button-clear cancel-button" style="font-size: 16px;" ng-click="closeModal()">
+                    Cancel
+                  </button>
+                </div>
+                <h1 class="title">Associate Commit</h1>
+              </ion-header-bar>
+              <ion-content>
+                <div class="list">
+                  <div class="item" style="height: 200px;">
+                  </div>
+                </div>
+                <button class="button button-block" style="width: 75%; font-size: 16px; color: #33cd5f; margin: 5% auto;" ng-click="closeModal()">
+                  Associate
+                </button>
+              </ion-content>
+            </div>
+          </script>
           
           <!-- User Story Testing (Once Accordion Unfolded)-->
           <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
             <i class="icon ion-erlenmeyer-flask" style="color: #ff0000;"></i>
             Acceptance Tests
-            <button class="text-center button button-balanced">
+            <button class="text-center button button-balanced" ng-click="openModal(testing-modal)">
               Write
+            </button>
+          </ion-item>
+          
+          <script id="testing-modal.html" type="text/ng-template">
+            <div class="modal myContent">
+              <ion-header-bar>
+                <div style="margin-left: 5px">
+                  <button class="button cancel-button" style="background-color: transparent; border: none; font-size: 16px;" ng-click="closeModal()">
+                    Cancel
+                  </button>
+                </div>
+                <h1 class="title">Write Test</h1>
+                  <button class="button location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+                    Add
+                  </button>
+              </ion-header-bar>
+              <ion-content>
+                <div class="list">
+                  <label class="item item-input">
+                    <input type="text" rows="2" placeholder="Name">
+                  </label>
+                  <label class="item item-input">
+                    <textarea rows="10" placeholder="Description" style="resize: none;"></textarea>
+                  </label>
+                </div>
+              </ion-content>
+            </div>
+          </script>
+          
+          <!-- User Story Comment (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
+            <i class="icon ion-ios-chatbubble" style="color: #ff0000;"></i>
+            Comments
+            <button class="text-center button button-balanced">
+              Comment
             </button>
           </ion-item>
           
