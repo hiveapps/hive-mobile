@@ -265,6 +265,26 @@ hive.controller('AccordionCtrl', function($scope, $ionicModal) {
     $scope.modal.remove();
   });
   
+  //if 'Comment' button is pressed show this modal
+  $ionicModal.fromTemplateUrl('comment-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })  
+
+  $scope.openModal = function() {
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  
 });
 
 //List controller
