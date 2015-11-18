@@ -207,24 +207,24 @@
             <div class="modal myContent">
               <ion-header-bar>
                 <div style="margin-left: 5px">
-                  <button class="button cancel-button" style="background-color: transparent; border: none; font-size: 16px;" ng-click="closeModal()">
+                  <button class="button button-clear" style="font-size: 16px;" ng-click="closeModal()">
                     Cancel
                   </button>
                 </div>
                 <h1 class="title">Write Test</h1>
-                  <button class="button location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
-                    Add
-                  </button>
               </ion-header-bar>
               <ion-content>
                 <div class="list">
                   <label class="item item-input">
-                    <input type="text" rows="2" placeholder="Name">
+                    <input type="text" rows="2" placeholder="Name" required>
                   </label>
                   <label class="item item-input">
                     <textarea rows="10" placeholder="Description" style="resize: none;"></textarea>
                   </label>
                 </div>
+                <button class="button button-block" style="width: 75%; font-size: 16px; color: #33cd5f; margin: 5% auto;" ng-click="closeModal()">
+                  Save
+                </button>
               </ion-content>
             </div>
           </script>
