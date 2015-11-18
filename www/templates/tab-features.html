@@ -1,0 +1,274 @@
+<ion-view view-title="App Features">
+  <div class="tabs-striped tabs-top">
+    <div class="tabs">
+      <a class="tab-item" ui-sref="app.details">
+        Details
+      </a>
+      <a class="tab-item active" ui-sref="app.features">
+        Features
+      </a>
+      <a class="tab-item" ui-sref="app.people">
+        People
+      </a>
+      <a class="tab-item" ui-sref="app.downloads">
+        Downloads
+      </a>
+    </div>
+  </div>
+  <ion-content style="padding: 0;">
+    <div class="row" style="margin-bottom: 10%;">
+      <button class="button button-balanced has-header" style="width: 50%; margin-right: 3px;" ng-controller="addfeatureCtrl" ng-click="openModal()">
+        Add Feature
+      </button>
+      
+      <script id="addfeature-modal.html" type="text/ng-template">
+        <div class="modal myContent">
+          <ion-header-bar>
+            <div style="margin-left: 5px">
+              <button class="button cancel-button" style="background-color: transparent; border: none; font-size: 16px;" ng-click="closeModal()">
+                Cancel
+              </button>
+            </div>
+            <h1 class="title">Add Feature</h1>
+              <button class="button location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+                Add
+              </button>
+          </ion-header-bar>
+          <ion-content>
+            <div class="list">
+              <label class="item item-input">
+                <input type="text" rows="2" placeholder="Name">
+              </label>
+              <label class="item item-input">
+                <textarea rows="10" placeholder="Description" style="resize: none;"></textarea>
+              </label>
+            </div>
+          </ion-content>
+        </div>
+      </script>
+      
+      <button class="button button-assertive has-header" style="width: 50%;" ng-controller="reportbugCtrl" ng-click="openModal()">
+        Report Bug
+      </button>
+      
+      <script id="reportbug-modal.html" type="text/ng-template">
+        <div class="modal myContent">
+          <ion-header-bar>
+            <div style="margin-left: 5px">
+              <button class="button cancel-button" style="background-color: transparent; border: none; font-size: 16px;" ng-click="closeModal()">
+                Cancel
+              </button>
+            </div>
+            <h1 class="title">Report Bug</h1>
+              <button class="button location-button" style="background-color: transparent; border: none; font-size: 16px; color: #ff0000;" ng-click="closeModal()">
+                Report
+              </button>
+          </ion-header-bar>
+          <ion-content>
+            <div class="list">
+              
+              <label class="item item-input">
+                <input type="text" placeholder="Name">
+              </label>
+              
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Platform
+                </div>
+                <select>
+                  <option>iOS</option>
+                  <option>Android</option>
+                  <option>Windows Phone</option>
+                </select>
+              </label>
+              
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Reproducible
+                </div>
+                <select>
+                  <option>Yes</option>
+                  <option>No</option>
+                  <option>Windows Phone</option>
+                </select>
+              </label>
+              
+              <label class="item item-input">
+                <textarea rows="5" placeholder="Steps to Reproduce" style="resize: none;"></textarea>
+              </label>
+              
+              <label class="item item-input">
+                <textarea rows="5" placeholder="Expected Result" style="resize: none;"></textarea>
+              </label>
+              
+              <label class="item item-input">
+                <textarea rows="5" placeholder="Actual Result" style="resize: none;"></textarea>
+              </label>
+              
+            </div>
+          </ion-content>
+        </div>
+      </script>
+      
+    </div>
+    <br><br>
+    <div ng-controller="AccordionCtrl">
+      <ion-list>
+        <div ng-repeat="group in groups">
+          
+          <!-- Folded Accordion View-->
+          <ion-item class="item-stable item-icon-left item-button-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-right'" style="font-size: 14px;"></i>
+              {{group.name}}
+              <button class="text-center button button-positive">
+                Finish
+              </button>
+          </ion-item>
+          
+          <!-- User Story description (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion"  ng-show="isGroupShown(group)">
+            {{group.description}}
+          </ion-item>
+          
+          <!-- User Story Name (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion item-button-right"  ng-show="isGroupShown(group)">
+            {{group.name}}
+            <button class="text-center button button-positive">
+              Finish
+            </button>
+          </ion-item>
+          
+          <!-- User Story Tasks (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
+            <i class="icon ion-checkmark-round" style="color: #ff0000;"></i>
+            Tasks
+            <button class="text-center button button-balanced">
+              Add
+            </button>
+          </ion-item>
+          
+          <!-- User Story Commits (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
+            <i class="icon ion-social-github-outline" style="color: #ff0000;"></i>
+            Commits
+            <button class="text-center button button-balanced">
+              Commit
+            </button>
+          </ion-item>
+          
+          <!-- User Story Testing (Once Accordion Unfolded)-->
+          <ion-item class="item-accordion item-icon-left item-button-right"  ng-show="isGroupShown(group)">
+            <i class="icon ion-erlenmeyer-flask" style="color: #ff0000;"></i>
+            Acceptance Tests
+            <button class="text-center button button-balanced">
+              Write
+            </button>
+          </ion-item>
+          
+        </div>
+      </ion-list>
+    </div>
+    
+  </ion-content>
+  <ion-footer-bar style="padding: 0;">
+    <div class="item tabs tabs-secondary tabs-icon-left" style="border: none; height: 100%;">
+      <a class="tab-item" href="#" style="font-size: 14px">
+        <i class="icon ion-thumbsup"></i>
+        Vote
+      </a>
+      <a class="tab-item" href="#" style="font-size: 14px">
+        <i class="icon ion-eye"></i>
+        Watch
+      </a>
+      <a class="tab-item" href="#" style="font-size: 14px" ng-controller="JoinCtrl" ng-click="openModal()">
+        <i class="icon ion-checkmark-round"></i>
+        Join
+      </a>
+    </div>
+  </ion-footer-bar>
+  <script id="joinTeam-modal.html" type="text/ng-template">
+    <div class="modal myContent">
+      <ion-header-bar>
+        <div style="margin-left: 5px">
+          <button class="button button-clear" style="background-color: transparent; border: none; font-size: 16px; color: #000000;" ng-click="closeModal()">
+            Cancel
+          </button>
+        </div>
+        <h1 class="title">Join Team</h1>
+          <button class="button button-clear location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+            Join
+          </button>
+      </ion-header-bar>
+      <ion-content>
+      <br><br>
+        <p style="font-size: 16px; text-align: center;">Which of the following roles would you like to contribute towards this Idea:</p>
+        <div class="list" style="margin-top: 10%; background-color: #f4f6fe;">
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="development">
+            <div class="item-content" style="background-color: transparent;">
+              Software Development
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="ux">
+            <div class="item-content" style="background-color: transparent;">
+              User Experience or Visual Design
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="qa">
+            <div class="item-content" style="background-color: transparent;">
+              Quality Assurance
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="management">
+            <div class="item-content" style="background-color: transparent;">
+              Project Management
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+
+        </div>
+      </ion-content>
+    </div>
+  </script>
+</ion-view>
+
+<!--
+    <div class="row">
+      <div class="card has-header" style="width: 100%;">
+        <div class="item item-text-wrap">
+          <div class="list">
+            
+            <a class="item" href="#" style="margin-top: 0; padding-top: 0; padding-bottom: 25px;">
+              User Story Name Here
+            </a>
+            
+            <a class="item item-icon-left" href="#">
+              <i class="icon ion-checkmark-round" style="color: #ff0000;"></i>
+              Tasks
+            </a>
+          
+            <a class="item item-icon-left" href="#">
+              <i class="icon ion-social-github-outline" style="color: #ff0000;"></i>
+              Commits
+            </a>
+          
+            <a class="item item-icon-left" href="#">
+              <i class="icon ion-erlenmeyer-flask" style="color: #ff0000;"></i>
+              Acceptance Tests
+            </a>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+-->

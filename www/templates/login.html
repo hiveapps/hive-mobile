@@ -1,0 +1,192 @@
+<ion-view ng-controller="IntroCtrl">
+  <ion-nav-buttons side="left">
+		<button class="button button-positive button-clear" ng-click="previous()" ng-show="slideIndex > 0 && slideIndex !=4" style="color: #000000;">
+		Previous
+		</button>
+	</ion-nav-buttons>
+	
+	<ion-nav-buttons side="right"> 
+		<button class="button button-positive button-clear" ng-click="next()" ng-show="slideIndex != 4" style="color: #000000;">
+		Next
+		</button>
+    <button class="button button-positive" ng-show="slideIndex === 4" style="height: 30px; margin-top: 3px; margin-right: 20px; border: none;" ng-controller='loginbuttonCtrl' ng-click="openModal()">
+      Login
+    </button>
+    <button class="button button-positive" ng-show="slideIndex === 4" style="height: 30px; right: 5px; margin-top: 3px; border: none;" ng-controller='RegisterCtrl' ng-click="openModal()">
+      Register
+    </button>
+	</ion-nav-buttons>
+  
+  <ion-content>
+    <ion-slide-box class="has-header" on-slide-changed="slideChanged(index)" show-pager="false">
+      
+      <!-- Slide 1 -->
+      <ion-slide>
+        <h3 style="text-align: center;">Register For Free!</h3>
+        
+        <p style="text-align: center; padding-left: 5px; padding-right: 5px;">Gain access to browse Ideas, and you can become a contributor in minutes</p>
+        
+        <div id="logo" style="text-align: center; margin-top: 5%;">
+          <img src="img/hivelogin2.png" style="width: 50%; height: 50%;">
+        </div>
+        
+      </ion-slide>
+      
+      <!-- Slide 2 -->
+      <ion-slide>
+        <h3 style="text-align: center;">Browse and Vote</h3>
+      
+        <p style="text-align: center; padding-left: 5px; padding-right: 5px;">Check out Ideas from others, and Vote for the ones you would use</p>
+      
+        <div id="logo" style="text-align: center; margin-top: 5%;">
+          <img src="img/hivepublic2.png" style="width: 50%; height: 50%;">
+        </div>
+      </ion-slide>
+      
+      <!-- Slide 3 -->
+      <ion-slide>
+        <h3 style="text-align: center;">Submit Your Ideas</h3>
+        
+        <p style="text-align: center; padding-left: 5px; padding-right: 5px;">We make it simple for you to share and promote your Ideas to the Hive Community and your friends</p>
+        
+        <div id="logo" style="text-align: center; margin-top: 5%;">
+          <img src="img/hivesubmit2.png" style="width: 50%; height: 50%;">
+        </div>
+      </ion-slide>
+      
+      <!-- Slide 4 -->
+      <ion-slide>
+        <h3 style="text-align: center;">Join A Team</h3>
+        
+        <p style="text-align: center; padding-left: 5px; padding-right: 5px;">If you’re a novice user, professional developer, or anywhere in between, you can start earning today</p>
+        
+        <div id="logo" style="text-align: center; margin-top: 5%;">
+          <img src="img/hivejoin2.png" style="width: 50%; height: 50%;">
+        </div>
+      </ion-slide>
+      
+      <!-- Slide 5 -->
+      <ion-slide>
+        <h3 style="text-align: center;">Fun for Nerds!</h3>
+        
+        <p style="text-align: center; padding-left: 5px; padding-right: 5px;">Our feature-set makes it easy for everyone to focus on what they do best, we take care of the rest</p>
+        
+        <div id="logo" style="text-align: center; margin-top: 5%;">
+          <img src="img/hivefeatures2.png" style="width: 50%; height: 50%;">
+        </div>
+      </ion-slide>
+    
+    </ion-slide-box>
+    <!--<label class="item" style="border: none; background-color: transparent;">
+      <button class="button button-block button-positive" ng-click="fbLogin()" ui-sref="app.public">
+      Login with Facebook
+      </button>
+    </label>-->
+    <label class="item" style="border: none; margin-top: 10%; text-align: center; background-color: transparent;" ng-show="slideIndex != 4">
+      <button class="button button-positive button-clear" ng-click="skip()" style="color: #387ef5;">
+        Skip Tutorial
+      </button>
+    </label>
+    <label class="item" style="border: none; margin-top: 10%; text-align: center; background-color: transparent;" ng-show="slideIndex === 4">
+      <button class="button button-positive button-clear" ng-click="restart()" style="color: #387ef5;">
+        Restart Tutorial
+      </button>
+    </label>
+  </ion-content>
+  <script id="login-modal.html" type="text/ng-template">
+    <div class="modal myContent">
+      <ion-header-bar>
+        <div style="margin-left: 5px">
+          <button class="button cancel-button button-clear" style="background-color: transparent; border: none; font-size: 16px; color: #0A60A0;" ng-click="closeModal()">
+            Cancel
+          </button>
+        </div>
+        <h1 class="title">Login</h1>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" rows="2" placeholder="Email Address" ng-model="emailAddress">
+          </label>
+          <label class="item item-input">
+            <input type="text" rows="2" placeholder="Password" ng-model="pass">
+          </label>
+        </div>
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-positive" ng-click="closeModal()" ui-sref="app.public">
+            Login
+            </button>
+          </label>
+        </a>
+        
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-positive" ng-click="closeModal()" ui-sref="app.public" style="margin-top: 40%; margin-bottom: 0px;">
+            Login With Facebook
+            </button>
+          </label>
+        </a>
+        
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-assertive" ng-click="closeModal()" ui-sref="app.public" style="margin-top: 0px;">
+            Login With Google
+            </button>
+          </label>
+        </a>
+      </ion-content>
+    </div>
+  </script>
+  
+  <script id="register-modal.html" type="text/ng-template">
+    <div class="modal myContent">
+      <ion-header-bar>
+        <div style="margin-left: 5px">
+          <button class="button cancel-button button-clear" style="background-color: transparent; border: none; font-size: 16px; color: #0A60A0;" ng-click="closeModal()">
+            Cancel
+          </button>
+        </div>
+        <h1 class="title">Register</h1>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" rows="2" placeholder="Name" ng-model="name">
+          </label>
+          <label class="item item-input">
+            <input type="text" rows="2" placeholder="Email Address" ng-model="emailAddress">
+          </label>
+          <label class="item item-input">
+            <input type="text" rows="2" placeholder="Password" ng-model="pass">
+          </label>
+        </div>
+        
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-positive" ng-click="closeModal()" ui-sref="app.public">
+            Register
+            </button>
+          </label>
+        </a>
+        
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-positive" ng-click="closeModal()" ui-sref="app.public" style="margin-top: 40%; margin-bottom: 0px;">
+            Register With Facebook
+            </button>
+          </label>
+        </a>
+        
+        <a ui-sref="app.public" style="text-decoration: none;">
+          <label class="item" style="border: none; background-color: transparent;">
+            <button class="button button-block button-assertive" ng-click="closeModal()" ui-sref="app.public" style="margin-top: 0px;">
+            Register With Google
+            </button>
+          </label>
+        </a>
+      </ion-content>
+    </div>
+  </script>
+  
+</ion-view>

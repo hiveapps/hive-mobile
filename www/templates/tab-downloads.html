@@ -1,0 +1,135 @@
+<ion-view view-title="App Downloads">
+  <div class="tabs-striped tabs-top">
+    <div class="tabs">
+      <a class="tab-item" ui-sref="app.details">
+        Details
+      </a>
+      <a class="tab-item" ui-sref="app.features">
+        Features
+      </a>
+      <a class="tab-item" ui-sref="app.people">
+        People
+      </a>
+      <a class="tab-item active" ui-sref="app.downloads">
+        Downloads
+      </a>
+    </div>
+  </div>
+  <ion-content style="padding: 0; has-header;"><br><br> <!-- break here so that card starts below sub-header -->
+  <div class="card" stlye="padding-top: 0;">
+    <div class="list">
+      <div class="row" style="padding: 0;"> 
+        <div class="col col-75" style="padding: 0;">
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-social-apple-outline" style="color: #ff0000;"></i>
+            iOS
+          </a>
+        </div>
+        <div class="col col-25">
+          <button class="button button-small button-positive">
+            Download
+          </button>
+        </div>
+      </div>
+      
+      <div class="row" style="padding: 0;"> 
+        <div class="col col-75" style="padding: 0;">
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-social-android-outline" style="color: #ff0000;"></i>
+            Android
+          </a>
+        </div>
+        <div class="col col-25">
+          <button class="button button-small button-positive">
+            Download
+          </button>
+        </div>
+      </div>
+      
+      <div class="row" style="padding: 0;"> 
+        <div class="col col-75" style="padding: 0;">
+          <a class="item item-icon-left" href="#">
+            <i class="icon ion-social-windows-outline" style="color: #ff0000;"></i>
+            Windows Phone
+          </a>
+        </div>
+        <div class="col col-25">
+          <button class="button button-small button-positive">
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ion-content>
+  <ion-footer-bar style="padding: 0;">
+    <div class="item tabs tabs-secondary tabs-icon-left" style="border: none; height: 100%;">
+      <a class="tab-item" href="#" style="font-size: 14px">
+        <i class="icon ion-thumbsup"></i>
+        Vote
+      </a>
+      <a class="tab-item" href="#" style="font-size: 14px">
+        <i class="icon ion-eye"></i>
+        Watch
+      </a>
+      <a class="tab-item" href="#" style="font-size: 14px" ng-controller="JoinCtrl" ng-click="openModal()">
+        <i class="icon ion-checkmark-round"></i>
+        Join
+      </a>
+    </div>
+  </ion-footer-bar>
+  <script id="joinTeam-modal.html" type="text/ng-template">
+    <div class="modal myContent">
+      <ion-header-bar>
+        <div style="margin-left: 5px">
+          <button class="button button-clear" style="background-color: transparent; border: none; font-size: 16px; color: #000000;" ng-click="closeModal()">
+            Cancel
+          </button>
+        </div>
+        <h1 class="title">Join Team</h1>
+          <button class="button button-clear location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+            Join
+          </button>
+      </ion-header-bar>
+      <ion-content>
+      <br><br>
+        <p style="font-size: 16px; text-align: center;">Which of the following roles would you like to contribute towards this Idea:</p>
+        <div class="list" style="margin-top: 10%; background-color: #f4f6fe;">
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="development">
+            <div class="item-content" style="background-color: transparent;">
+              Software Development
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="ux">
+            <div class="item-content" style="background-color: transparent;">
+              User Experience or Visual Design
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="qa">
+            <div class="item-content" style="background-color: transparent;">
+              Quality Assurance
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+          
+          <label class="item item-radio">
+            <input type="radio" name="group" value="management">
+            <div class="item-content" style="background-color: transparent;">
+              Project Management
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+          </label>
+
+        </div>
+      </ion-content>
+    </div>
+  </script>
+</ion-view>

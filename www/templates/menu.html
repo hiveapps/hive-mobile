@@ -1,0 +1,126 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-arrow-graph-up-right" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+      
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <div class="item" style="text-align: center;">
+          <a menu-close href="#/app/profile">
+            <img src="https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png" style="width: 125px; height: 125px; border-radius: 30px;">
+          </a>
+        </div>
+        <ion-item menu-close href="#/app/myhive">
+          My Hive
+        </ion-item>
+        <ion-item menu-close href="#/app/public">
+          Public
+        </ion-item>
+        <ion-item menu-close href="#/app/submit">
+          Submit
+        </ion-item>
+        <!--<ion-item menu-close ng-click="logout()">
+          Logout
+        </ion-item>-->
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Tasks</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <div class="item item-divider" style="background-color: #D3D3D3;">Current:</div>  
+        
+        <!-- Test List -->
+        <ion-list show-reorder="data.showReorder" ng-controller="MyCtrl">
+    
+          <ion-item ng-repeat="item in items" item="item" class="item-remove-animate">
+            User Story {{ item.id }}
+            <ion-option-button class="button-assertive" ng-click="add(item)" style="border-left: .1em solid black;">
+              Add Task
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="commit(item)" style="border-left: .1em solid black;">
+              Commit
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="test(item)" style="border-left: .1em solid black;">
+              Test
+            </ion-option-button>
+            <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+          </ion-item>
+    
+        </ion-list>
+        
+        <div class="item item-divider" style="background-color: #D3D3D3;">Backlog:</div>
+        
+        <ion-list show-reorder="data.showReorder" ng-controller="MyCtrl">
+    
+          <ion-item ng-repeat="item in items" item="item" class="item-remove-animate">
+            User Story {{ item.id }}
+            <ion-option-button class="button-assertive" ng-click="add(item)" style="border-left: .1em solid black;">
+              Add Task
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="commit(item)" style="border-left: .1em solid black;">
+              Commit
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="test(item)" style="border-left: .1em solid black;">
+              Test
+            </ion-option-button>
+            <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+          </ion-item>
+    
+        </ion-list>
+        
+        <div class="item item-divider" style="background-color: #D3D3D3;">Ice Box:</div>
+        
+        <ion-list show-reorder="data.showReorder" ng-controller="MyCtrl">
+    
+          <ion-item ng-repeat="item in items" item="item" href="#/item/{{item.id}}" class="item-remove-animate">
+            User Story {{ item.id }}
+            <ion-option-button class="button-assertive" ng-click="add(item)" style="border-left: .1em solid black;">
+              Add Task
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="commit(item)" style="border-left: .1em solid black;">
+              Commit
+            </ion-option-button>
+            <ion-option-button class="button-assertive" ng-click="test(item)" style="border-left: .1em solid black;">
+              Test
+            </ion-option-button>
+            <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+          </ion-item>
+    
+        </ion-list>
+      </div>
+      
+    </ion-content>
+    
+    <ion-footer-bar class="bar-stable">
+      <div class="item" style="width: 100%; border: none; text-align: center; margin: 0px; padding: 0px; background-color: transparent;">
+        <button class="button button-assertive icon ion-mic-a" style="border-radius: 25px; color: #ffffff;" ng-click="captureAudio"></button>
+      </div>
+    </ion-footer-bar>
+    
+  </ion-side-menu>
+  
+</ion-side-menus>

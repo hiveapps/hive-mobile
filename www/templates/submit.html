@@ -1,0 +1,55 @@
+<ion-view view-title="Submit Idea">
+  <ion-content>
+    <form class="list" name="submitIdeaForm" ng-controller="AddCtrl">
+      <label class="item item-input">
+        <input type="text" placeholder="Hive" ng-model="ideaName">
+      </label>
+      <label class="item item-input">
+        <textarea placeholder="Everyone has a great App Idea...Hive makes them happen" 
+        ng-model="ideaTagline" style="resize: none;"></textarea>
+      </label>
+      <label class="item item-input">
+        <textarea rows="8" cols="8" placeholder="Share your App Ideas with the Hive community and your friends. Discover other great Ideas and contribute to their development. Earn money from your Ideas and the Apps you help build!" 
+        ng-model="ideaDescription" style="resize: none;"></textarea>
+      </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Category
+        </div>
+        <select ng-model="ideaCategory">
+          <option value="" disabled selected>Select Category</option>
+          <option>Books</option>
+          <option>Business</option>
+          <option>Education</option>
+          <option>Entertainment</option>
+          <option>Finance</option>
+          <option>Games</option>
+          <option>Health & Fitness</option>
+          <option>Lifestyle</option>
+          <option>Medical</option>
+          <option>Music</option>
+          <option>Navigation</option>
+          <option>News</option>
+          <option>Photo & Video</option>
+          <option>Productivity</option>
+          <option>Reference</option>
+          <option>Shopping</option>
+          <option>Social</option>
+          <option>Sports</option>
+          <option>Travel</option>
+          <option>Utilities</option>
+          <option>Weather</option>
+        </select>
+      </label>
+    
+      <button class="button button-full button-positive" style="margin-top: 5%;" type="submit" ng-model="addIdea" ng-disabled="!ideaName||!ideaTagline||!ideaDescription||!ideaCategory" ng-click="submitIdea(); reset()">
+        Submit
+      </button>
+      <button class="button button-full button-assertive" style="margin-top: 5%;" type="submit" ng-model="saveDraft" ng-disabled="submitIdeaForm.$pristine" ng-click="saveIdea(); reset()">
+        Save As Draft
+      </button>
+    
+    </form>
+    
+  </ion-content>
+</ion-view>

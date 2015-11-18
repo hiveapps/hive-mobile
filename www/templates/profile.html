@@ -1,0 +1,165 @@
+<ion-view view-title="Profile">
+  <div ng-controller="ClickToEditCtrl">
+    <div class="bar bar-subheader">
+      <div class="button-bar" style="height: 100%; border-bottom: none;">  
+        <a class="button" ng-hide="editorEnabled" ng-click="editorEnabled=!editorEnabled">Edit Profile</a>    
+        <a class="button" ng-show="editorEnabled" ng-click="editorEnabled=!editorEnabled; update()">Save Profile</a>
+        <a class="button" ui-sref="app.account">Settings</a>
+      </div> 
+    </div>
+    <!--<div class="item item-icon item-icon-right" style="text-align: center; border: none; background-color: transparent; margin-top: 50px;">  
+      <a ui-sref="tab.account">
+        <i class="icon icon-right ion-settings" style="color: #000000;"></i>
+      </a>
+    </div> -->
+    <ion-content>
+      
+      <div class="item has-header" style="text-align: center; border-top: none;">
+        <img src="https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png" style="width: 150px; height: 150px; border-radius: 30px;">
+      </div>
+      
+      <form class="list has-header" name="userForm">  
+        
+        <div class="item item-body" style="padding-top: 0px;">
+          
+          <!-- Profile Name Section -->
+          <div ng-hide="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">Name:</div>
+              <input type="text" required ng-model="profileName" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">Name:</div>
+              <input type="text" required ng-model="profileName">
+            </label>
+          </div>
+          
+          <!-- Email Section -->
+          <div ng-hide="editorEnabled">        
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">E-mail Address:</div>
+              <input type="text" required ng-model="profileEmail" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">        
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">E-mail Address:</div>
+              <input type="text" required ng-model="profileEmail">
+            </label>
+          </div>
+          
+          <!-- Profile Role Section -->
+          <div ng-hide="editorEnabled">
+            <label class="item item-input item-select" style="width: 100%; height: 50px; border: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Primary Role:</div>
+              <select  required ng-model="profileRole" disabled style="background-color: transparent;">
+                <option value="" disabled selected>Select</option>
+                <option value="general">General User</option>
+                <option value="designer">Designer</option>
+                <option value="developer">Developer</option>
+                <option value="tester">Tester</option>
+                <option value="owner">Product Owner</option>
+              </select>
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">
+            <label class="item item-input item-select" style="width: 100%; height: 50px; border: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Primary Role:</div>
+              <select  required ng-model="profileRole">
+                <option value="" disabled selected>Select</option>
+                <option value="general">General User</option>
+                <option value="designer">Designer</option>
+                <option value="developer">Developer</option>
+                <option value="tester">Tester</option>
+                <option value="owner">Product Owner</option>
+              </select>
+            </label>
+          </div>
+          
+          <!-- LinkedIn Section -->
+          <div ng-hide="editorEnabled">  
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">LinkedIn URL:</div>
+              <input type="text" required ng-model="profileLinkedIn" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">  
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none;">
+              <div class="input-label" style="color: #000000;">LinkedIn URL:</div>
+              <input type="text" required ng-model="profileLinkedIn">
+            </label>
+          </div>
+          
+          <!-- GitHub Section -->
+          <div ng-hide="editorEnabled">  
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">GitHub Username:</div>
+              <input type="text" required ng-model="profileGitHub" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">  
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">GitHub Username:</div>
+              <input type="text" required ng-model="profileGitHub">
+            </label>
+          </div>
+          
+          <!-- Skype Section -->
+          <div ng-hide="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Skype Name:</div>
+              <input type="text" required ng-model="profileSkype" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Skype Name:</div>
+              <input type="text" required ng-model="profileSkype">
+            </label>
+          </div>
+          
+          <!-- Paypal Section -->
+          <div ng-hide="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Paypal E-mail Address:</div>
+              <input type="text" required ng-model="profilePaypal" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Paypal E-mail Address:</div>
+              <input type="text" required ng-model="profilePaypal">
+            </label>
+          </div>
+          
+          <!-- Gravatar Section -->
+          <div ng-hide="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Gravatar E-mail Address:</div>
+              <input type="text" required ng-model="profileGravatar" disabled style="background-color: transparent;">
+            </label>
+          </div>
+          
+          <div ng-show="editorEnabled">
+            <label class="item item-input" style="width: 100%; height: 50px; border-left: none; border-right: none; border-bottom: none; padding-bottom: 0;">
+              <div class="input-label" style="color: #000000;">Gravatar E-mail Address:</div>
+              <input type="text" required ng-model="profileGravatar">
+            </label>
+          </div>
+        
+        </div>
+      
+      </form>  
+    
+    </ion-content>
+  </div>  
+</ion-view>

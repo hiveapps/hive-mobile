@@ -1,0 +1,17 @@
+//custom sass goes here
+
+//progress bar customization
+.progress { 
+  height: 3em;
+  i { line-height: 3.5em; }
+}
+
+.progress-bar { 
+  transition: width 1s ease-in-out; 
+}
+
+
+//Accordion Button Styling
+.center{
+  text-align: center !important; 
+}

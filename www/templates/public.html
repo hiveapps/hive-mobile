@@ -1,0 +1,93 @@
+<ion-view view-title="Public">
+  <ion-content>
+    <a ui-sref="app.details" style="text-decoration: none;">  
+      <div class="list card">
+  
+        <div class="item item-avatar">
+          <img src="img/hivelogo.jpg">
+          <h2>Idea Name</h2>
+          <p>Health & Fitness</p>
+          <p>3 months ago</p>
+        </div>
+      
+        <div class="item item-body">
+          <p>
+            This is where the beginning of the idea details will go. There will be a max character
+            count that will make the user have to click on the idea in order to see more.
+          </p>
+        </div>
+      
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#" style="font-size: 14px">
+            <i class="icon ion-thumbsup"></i>
+            Vote
+          </a>
+          <a class="tab-item" href="#" style="font-size: 14px">
+            <i class="icon ion-eye"></i>
+            Watch
+          </a>
+          <a class="tab-item" href="#" style="font-size: 14px" ng-controller="JoinCtrl" ng-click="openModal()">
+            <i class="icon ion-checkmark-round"></i>
+            Join
+          </a>
+        </div>
+      </div>
+    </a>
+    
+    <script id="joinTeam-modal.html" type="text/ng-template">
+      <div class="modal myContent">
+        <ion-header-bar>
+          <div style="margin-left: 5px">
+            <button class="button button-clear" style="background-color: transparent; border: none; font-size: 16px; color: #000000;" ng-click="closeModal()">
+              Cancel
+            </button>
+          </div>
+          <h1 class="title">Join Team</h1>
+            <button class="button button-clear location-button" style="background-color: transparent; border: none; font-size: 16px; color: #33cd5f;" ng-click="closeModal()">
+              Join
+            </button>
+        </ion-header-bar>
+        <ion-content>
+        <br><br>
+          <p style="font-size: 16px; text-align: center;">Which of the following roles would you like to contribute towards this Idea:</p>
+          <div class="list" style="margin-top: 10%; background-color: #f4f6fe;">
+            
+            <label class="item item-radio">
+              <input type="radio" name="group" value="development">
+              <div class="item-content" style="background-color: transparent;">
+                Software Development
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+            
+            <label class="item item-radio">
+              <input type="radio" name="group" value="ux">
+              <div class="item-content" style="background-color: transparent;">
+                User Experience or Visual Design
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+            
+            <label class="item item-radio">
+              <input type="radio" name="group" value="qa">
+              <div class="item-content" style="background-color: transparent;">
+                Quality Assurance
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+            
+            <label class="item item-radio">
+              <input type="radio" name="group" value="management">
+              <div class="item-content" style="background-color: transparent;">
+                Project Management
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+
+          </div>
+        </ion-content>
+      </div>
+    </script>
+    
+  </ion-content>
+</ion-view>
